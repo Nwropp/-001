@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สัญญาครบรอบ 1 ปี</title>
+<style>
+  :root { color-scheme: light; --ink:#263238; --muted:#667085; --line:#d9dee7; --accent:#536dfe; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:20px 12px 40px; background:#f4f6fb; color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+  main { max-width:760px; margin:auto; background:#fff; border:1px solid #e7eaf0; border-radius:18px; padding:clamp(18px,4vw,34px); box-shadow:0 8px 30px #1d2b4a0c; }
+  h1 { text-align:center; margin:0 0 4px; font-size:clamp(24px,5vw,32px); }
+  .subtitle { text-align:center; color:var(--muted); font-size:12px; letter-spacing:2px; margin-bottom:26px; }
+  .intro { text-align:center; color:var(--muted); margin-bottom:24px; }
+  h2 { font-size:18px; margin:24px 0 12px; }
+  .terms { padding-left:24px; line-height:1.8; }
+  label { display:block; font-weight:650; margin:14px 0 7px; }
+  input { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:10px; font:inherit; background:#fff; }
+  .signbox { border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff; }
+  canvas { display:block; width:100%; height:150px; touch-action:none; background:linear-gradient(#fff,#fff); }
+  .sign-actions { display:flex; justify-content:flex-end; padding:8px; border-top:1px solid #edf0f5; }
+  button { border:0; border-radius:10px; padding:11px 15px; font:inherit; font-weight:650; cursor:pointer; }
+  .clear { background:#eef1f6; color:#344054; padding:7px 12px; font-size:14px; }
+  .primary { background:var(--accent); color:white; width:100%; margin-top:18px; }
+  .note { color:var(--muted); font-size:13px; line-height:1.6; background:#f7f8fc; border-radius:10px; padding:12px; margin-top:18px; }
+  .consent { display:flex; align-items:flex-start; gap:9px; font-weight:400; line-height:1.5; }
+  .consent input { width:auto; margin-top:5px; }
+  footer { text-align:center; font-size:12px; color:var(--muted); margin-top:22px; }
+  @media print { body { background:white; padding:0; } main { box-shadow:none; border:0; } button,.note { display:none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>สัญญาครบรอบ 1 ปี</h1>
+  <div class="subtitle">ANNIVERSARY AGREEMENT</div>
+  <p class="intro">ข้อตกลงระหว่างเรา — ทำไว้เป็นที่ระลึกในวันครบรอบ</p>
+
+  <h2>ข้อตกลง</h2>
+  <ol class="terms">
+    <li>ซื่อสัตย์และจริงใจต่อกัน</li>
+    <li>มีปัญหาให้พูดคุยกันตรง ๆ</li>
+    <li>ไม่ปล่อยให้อีกฝ่ายต้องคิดไปเอง หากสะดวกให้บอกกันเมื่อไม่ว่าง</li>
+    <li>เคารพเวลา ความรู้สึก และพื้นที่ส่วนตัวของกันและกัน</li>
+    <li>เมื่อมีปัญหา จะพยายามหาทางแก้ร่วมกันโดยไม่บังคับอีกฝ่าย</li>
+  </ol>
+
+  <label for="name1">ชื่อฝ่ายที่ 1</label>
+  <input id="name1" placeholder="กรอกชื่อหรือชื่อเล่น">
+  <label>ลายเซ็นฝ่ายที่ 1 (ใช้นิ้วหรือเมาส์เซ็น)</label>
+  <div class="signbox"><canvas id="sig1" aria-label="พื้นที่เซ็นชื่อฝ่ายที่ 1"></canvas><div class="sign-actions"><button class="clear" type="button" data-clear="sig1">ล้างลายเซ็น</button></div></div>
+  <label class="consent"><input id="agree1" type="checkbox"> <span>ฉันได้อ่านและยอมรับข้อตกลงนี้โดยสมัครใจ</span></label>
+
+  <label for="name2">ชื่อฝ่ายที่ 2</label>
+  <input id="name2" placeholder="กรอกชื่อหรือชื่อเล่น">
+  <label>ลายเซ็นฝ่ายที่ 2 (ใช้นิ้วหรือเมาส์เซ็น)</label>
+  <div class="signbox"><canvas id="sig2" aria-label="พื้นที่เซ็นชื่อฝ่ายที่ 2"></canvas><div class="sign-actions"><button class="clear" type="button" data-clear="sig2">ล้างลายเซ็น</button></div></div>
+  <label class="consent"><input id="agree2" type="checkbox"> <span>ฉันได้อ่านและยอมรับข้อตกลงนี้โดยสมัครใจ</span></label>
+
+  <label for="anniversary">วันที่ครบรอบ</label>
+  <input id="anniversary" type="date">
+  <button class="primary" id="save" type="button">บันทึกเป็นรูปภาพ PNG</button>
+  <button class="primary" id="print" type="button" style="background:#344054;margin-top:10px">พิมพ์ / บันทึกเป็น PDF</button>
+
+  <div class="note">
+    <strong>หมายเหตุ:</strong> ไฟล์นี้ทำงานบนอุปกรณ์ที่เปิดไฟล์และไม่ได้ส่งข้อมูลให้ใครโดยอัตโนมัติ หากต้องการให้แฟนเซ็นจากคนละเครื่อง ต้องนำไฟล์ไปโฮสต์เป็นเว็บไซต์หรือใช้บริการที่รองรับการแชร์และบันทึกข้อมูลร่วมกันก่อน
+    <br>ข้อตกลงนี้เป็นข้อความที่ระลึก ไม่ใช่คำแนะนำทางกฎหมายหรือสัญญาทางกฎหมาย
+  </div>
+  <footer>ทำด้วยความสมัครใจ • คุยกันได้เสมอหากอยากปรับข้อตกลง</footer>
+</main>
+<script>
+const canvases = {};
+function setupCanvas(canvas) {
+  const ctx = canvas.getContext('2d');
+  canvases[canvas.id] = {canvas, ctx, drawing:false, signed:false, last:null};
+  function resize() {
+    const old = document.createElement('canvas');
+    old.width = canvas.width || 1; old.height = canvas.height || 1;
+    old.getContext('2d').drawImage(canvas,0,0);
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.round(rect.width * ratio);
+    canvas.height = Math.round(150 * ratio);
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    ctx.lineWidth = 2.3; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#172554';
+    if (old.width > 1 && old.height > 1) ctx.drawImage(old,0,0,old.width,old.height,0,0,rect.width,150);
+  }
+  resize();
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resize(); });
+  function point(e) {
+    const r = canvas.getBoundingClientRect();
+    return {x:e.clientX-r.left, y:e.clientY-r.top};
+  }
+  canvas.addEventListener('pointerdown', e => {
+    e.preventDefault(); canvas.setPointerCapture(e.pointerId);
+    const p = point(e); canvases[canvas.id].drawing = true; canvases[canvas.id].last = p;
+    ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+0.1,p.y+0.1); ctx.stroke();
+    canvases[canvas.id].signed = true;
+  });
+  canvas.addEventListener('pointermove', e => {
+    const state = canvases[canvas.id]; if (!state.drawing) return;
+    e.preventDefault(); const p = point(e);
+    ctx.beginPath(); ctx.moveTo(state.last.x,state.last.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    state.last = p;
+  });
+  function stop() { canvases[canvas.id].drawing = false; canvases[canvas.id].last = null; }
+  canvas.addEventListener('pointerup', stop);
+  canvas.addEventListener('pointercancel', stop);
+}
+document.querySelectorAll('canvas').forEach(setupCanvas);
+document.querySelectorAll('[data-clear]').forEach(btn => btn.addEventListener('click', () => {
+  const c = document.getElementById(btn.dataset.clear), ctx = c.getContext('2d');
+  ctx.clearRect(0,0,c.width,c.height); canvases[c.id].signed = false;
+}));
+function value(id) { return document.getElementById(id).value.trim(); }
+function signatureImage(id) {
+  const c = document.getElementById(id), out = document.createElement('canvas');
+  out.width = c.width; out.height = c.height;
+  out.getContext('2d').drawImage(c,0,0); return out;
+}
+document.getElementById('save').addEventListener('click', () => {
+  if (!value('name1') || !value('name2')) { alert('กรุณากรอกชื่อทั้งสองฝ่ายก่อน'); return; }
+  if (!document.getElementById('agree1').checked || !document.getElementById('agree2').checked) { alert('กรุณาให้ทั้งสองฝ่ายยืนยันการยอมรับก่อนบันทึก'); return; }
+  if (!canvases.sig1.signed || !canvases.sig2.signed) { alert('กรุณาเซ็นชื่อทั้งสองฝ่ายก่อนบันทึก'); return; }
+  const out = document.createElement('canvas'), ctx = out.getContext('2d');
+  out.width = 1200; out.height = 1650;
+  ctx.fillStyle = '#fff'; ctx.fillRect(0,0,out.width,out.height);
+  ctx.fillStyle = '#263238'; ctx.textAlign = 'center';
+  ctx.font = 'bold 44px sans-serif'; ctx.fillText('สัญญาครบรอบ 1 ปี',600,85);
+  ctx.font = '20px sans-serif'; ctx.fillStyle = '#667085'; ctx.fillText('ANNIVERSARY AGREEMENT',600,125);
+  ctx.textAlign = 'left'; ctx.fillStyle = '#263238'; ctx.font = 'bold 27px sans-serif'; ctx.fillText('ข้อตกลง',90,200);
+  const lines = ['1. ซื่อสัตย์และจริงใจต่อกัน','2. มีปัญหาให้พูดคุยกันตรง ๆ','3. บอกกันเมื่อไม่ว่างหากสะดวก','4. เคารพเวลา ความรู้สึก และพื้นที่ส่วนตัว','5. พยายามแก้ไขปัญหาร่วมกันโดยไม่บังคับ'];
+  ctx.font = '23px sans-serif'; lines.forEach((s,i)=>ctx.fillText(s,100,250+i*48));
+  ctx.font = 'bold 24px sans-serif'; ctx.fillText('ฝ่ายที่ 1: '+value('name1'),90,560);
+  ctx.drawImage(signatureImage('sig1'),90,585,480,150);
+  ctx.fillText('ฝ่ายที่ 2: '+value('name2'),90,810);
+  ctx.drawImage(signatureImage('sig2'),90,835,480,150);
+  ctx.font = '21px sans-serif'; ctx.fillText('วันที่ครบรอบ: '+(value('anniversary')||'ไม่ได้ระบุ'),90,1060);
+  ctx.font = '19px sans-serif'; ctx.fillStyle = '#667085';
+  ctx.fillText('ทั้งสองฝ่ายยืนยันว่าได้อ่านและยอมรับข้อตกลงโดยสมัครใจ',90,1120);
+  ctx.fillText('เอกสารที่ระลึก ไม่ใช่สัญญาทางกฎหมาย',90,1160);
+  const a = document.createElement('a'); a.download = 'anniversary-agreement.png'; a.href = out.toDataURL('image/png'); a.click();
+});
+document.getElementById('print').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
